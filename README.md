@@ -1,7 +1,7 @@
 # Sae23
 Projet Pasta Pizza
 
-
+Fonctionnalité : s'allumer déjà
 
 
 Projet : SAE
