@@ -7,9 +7,9 @@ Fonctionnalité : s'allumer déjà
 Projet : SAE
 Site en ligne de restauration type italien, 3 restaurant autour Rennes, et livraisons depuis le site. El Pasta Pizza ( SARL Pizzerita ).
 
-Yannzizi : partie graphique, logo, charte graphique.
-Adrienzizi : configuration du serveur.
-Theo le best : structure du site
+Yann : partie graphique, logo, charte graphique.
+Adrien : configuration du serveur.
+Theo : structure du site
     Page accueil
     Page menu
     Page livraison
