@@ -16,5 +16,3 @@ Theozizi : structure du site
     Page mystere
 
 Kerrian : Programmation des sites, selon les pages que théo donne.
-
-modification readme
