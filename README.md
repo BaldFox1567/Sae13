@@ -18,3 +18,5 @@ Theo : structure du site
 Kerrian : Programmation des sites, selon les pages que théo donne.
 
 modification readme
+
+L'HOMME TROP BEAU
