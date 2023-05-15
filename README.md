@@ -5,7 +5,11 @@ Fonctionnalité : s'allumer déjà
 
 
 Projet : SAE
-Site en ligne de restauration type italien, 3 restaurant autour Rennes, et livraisons depuis le site. El Pasta Pizza ( SARL Pizzerita ).
+
+Site en ligne de restauration 
+type italien, 
+3 restaurants autour de Rennes
+Livraisons depuis le site. El Pasta Pizza ( SARL Pizzerita ).
 
 ## Contributors
 
