@@ -4,7 +4,7 @@
   </head>
   <body>
     <?php
-    echo "zizi";
+    echo "nul";
     ?>
   </body>
 </html>
