@@ -9,7 +9,7 @@ Site en ligne de restauration type italien, 3 restaurant autour Rennes, et livra
 
 Yann : partie graphique, logo, charte graphique.
 Adrien : configuration du serveur.
-Theo : structure du site
+Theozizi encore : structure du site
     Page accueil
     Page menu
     Page livraison
