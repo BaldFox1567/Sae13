@@ -1,4 +1,4 @@
-<!--Page Accueil-->
+<!--Page A propos-->
 <?php include ('fonction.php');
 head();
 page_top();

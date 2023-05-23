@@ -1,4 +1,4 @@
-<!--Page Accueil-->
+<!--Page Commande en ligne-->
 <?php include ('fonction.php');
 head();
 page_top();

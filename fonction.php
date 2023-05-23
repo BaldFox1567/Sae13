@@ -50,36 +50,50 @@ function page_bot(){
 function navbar($pageactive){
     echo '
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a class="navbar-brand" href="/">TP 209</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link"'; 
-    if($pageactive=="index.php"){echo ' style="color:#3498db;"';}
-    echo 'href="page01.php">page1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"';
-    if($pageactive=="page02.php"){echo ' style="color:#3498db;"';}
-    echo 'href="page02.php">page2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"'; 
-    if($pageactive=="page03.php"){echo ' style="color:#3498db;"';}
-    echo 'href="page04.php">page3</a>
-        </li>   
-        <li class="nav-item">
-          <a class="nav-link"'; 
-    if($pageactive=="page04.php"){echo ' style="color:#3498db;"';}
-    echo 'href="page05.php">page4</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"'; 
-    if($pageactive=="page05.php"){echo ' style="color:#3498db;"';}
-    echo 'href="page06.php">page5</a></li></ul></div></nav>
+      <a class="navbar-brand" href="/">TP 209</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link"'; 
+      if($pageactive=="index.php"){echo ' style="color:#3498db;"';}
+      echo 'href="index.php">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"';
+      if($pageactive=="page02.php"){echo ' style="color:#3498db;"';}
+      echo 'href="page02.php">A propos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"'; 
+      if($pageactive=="page03.php"){echo ' style="color:#3498db;"';}
+      echo 'href="page03.php">Menu</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link"'; 
+      if($pageactive=="page04.php"){echo ' style="color:#3498db;"';}
+      echo 'href="page04.php">Commande en ligne</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"'; 
+      if($pageactive=="page05.php"){echo ' style="color:#3498db;"';}
+      echo 'href="page05.php">Réservation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"'; 
+      if($pageactive=="page06.php"){echo ' style="color:#3498db;"';}
+      echo 'href="page06.php">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"'; 
+      if($pageactive=="page07.php"){echo ' style="color:#3498db;"';}
+      echo 'href="page07.php">Espace employés</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     ';
 }
 
