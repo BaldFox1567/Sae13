@@ -1,55 +1,134 @@
 {
-    "categories": [
-      {
-        "name": "Pizzas",
-        "items": [
-          {
-            "name": "Pizza Margherita",
-            "description": "Tomato sauce, mozzarella, fresh basil",
-            "price": "10€",
-            "vegetarian": true,
-            "allergens": ["Gluten", "Lactose"],
-            "image": "img/pizza-margherita.jpg"
-          },
-          {
-            "name": "Pizza Pepperoni",
-            "description": "Tomato sauce, mozzarella, pepperoni",
-            "price": "12€",
-            "vegetarian": false,
-            "allergens": ["Gluten", "Lactose"],
-            "image": "img/pizza-pepperoni.jpg"
-          },
-          {
-            "name": "Pizza Quattro Formaggi",
-            "description": "Tomato sauce, mozzarella, gorgonzola, fontina, Parmesan",
-            "price": "13€",
-            "vegetarian": true,
-            "allergens": ["Gluten", "Lactose"],
-            "image": "img/pizza-quattro-formaggi.jpg"
-          }
-        ]
-      },
-      {
-        "name": "Pâtes",
-        "items": [
-          {
-            "name": "Spaghetti Carbonara",
-            "description": "Spaghetti, eggs, bacon, Parmesan cheese",
-            "price": "10€",
-            "vegetarian": false,
-            "allergens": ["Gluten", "Lactose", "Eggs"],
-            "image": "img/spaghetti-carbonara.jpg"
-          },
-          {
-            "name": "Lasagna",
-            "description": "Layers of pasta, Bolognese sauce, bechamel sauce, Parmesan cheese",
-            "price": "12€",
-            "vegetarian": false,
-            "allergens": ["Gluten", "Lactose"],
-            "image": "img/lasagna.jpg"
-          }
-        ]
-      }
-    ]
-  }
-  
+  "categories": [
+    {
+      "name": "Pizzas",
+      "items": [
+        {
+          "name": "Pizza Margherita",
+          "description": "Tomato sauce, mozzarella, fresh basil",
+          "price": "10€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-margherita.jpg"
+        },
+        {
+          "name": "Pizza Pepperoni",
+          "description": "Tomato sauce, mozzarella, pepperoni",
+          "price": "12€",
+          "vegetarian": false,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-pepperoni.jpg"
+        },
+        {
+          "name": "Pizza Fromage",
+          "description": "Tomato sauce, mozzarella, gorgonzola, fontina, Parmesan",
+          "price": "13€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-quattro-formaggi.jpg"
+        },
+        {
+          "name": "Pizza Prosciutto",
+          "description": "Tomato sauce, mozzarella, ham, mushrooms",
+          "price": "11€",
+          "vegetarian": false,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-prosciutto-e-funghi.jpg"
+        },
+        {
+          "name": "Pizza Capricciosa",
+          "description": "Tomato sauce, mozzarella, ham, artichokes, olives, mushrooms",
+          "price": "13€",
+          "vegetarian": false,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-capricciosa.jpg"
+        },
+        {
+          "name": "Pizza Hawaiian",
+          "description": "Tomato sauce, mozzarella, ham, pineapple",
+          "price": "12€",
+          "vegetarian": false,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-hawaiian.jpg"
+        },
+        {
+          "name": "Pizza Funghi",
+          "description": "Tomato sauce, mozzarella, mushrooms, black olives, oregano",
+          "price": "11€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-funghi.jpg"
+        },
+        {
+          "name": "Pizza Provencale",
+          "description": "Tomato sauce, mozzarella, bell peppers, onions, zucchini, herbs de Provence",
+          "price": "12€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-provencale.jpg"
+        },
+        {
+          "name": "Pizza Vegetariana",
+          "description": "Tomato sauce, mozzarella, bell peppers, onions, olives, mushrooms",
+          "price": "11€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-vegetariana.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Pâtes",
+      "items": [
+        {
+          "name": "Spaghetti Carbonara",
+          "description": "Spaghetti, eggs, bacon, Parmesan cheese",
+          "price": "10€",
+          "vegetarian": false,
+          "allergens": ["Gluten", "Lactose", "Eggs"],
+          "image": "img/spaghetti-carbonara.jpg"
+        },
+        {
+          "name": "Tagliatelle Alfredo",
+          "description": "Tagliatelle pasta, creamy Alfredo sauce, Parmesan cheese",
+          "price": "11€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/tagliatelle-alfredo.jpg"
+        },
+        {
+          "name": "Penne Arrabiata",
+          "description": "Penne pasta, spicy tomato sauce, garlic, chili flakes",
+          "price": "10€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/penne-arrabiata.jpg"
+        },
+        {
+          "name": "Ravioli Spinach and Ricotta",
+          "description": "Homemade spinach and ricotta filled ravioli, tomato sauce",
+          "price": "12€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose", "Eggs"],
+          "image": "img/ravioli-spinach-ricotta.jpg"
+        },
+        {
+          "name": "Farfalle Pesto",
+          "description": "Farfalle pasta, basil pesto sauce, cherry tomatoes, pine nuts",
+          "price": "11€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose", "Nuts"],
+          "image": "img/farfalle-pesto.jpg"
+        },
+        {
+          "name": "Lasagna",
+          "description": "Layers of pasta, Bolognese sauce, bechamel sauce, Parmesan cheese",
+          "price": "12€",
+          "vegetarian": false,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/lasagna.jpg"
+        }
+      ]
+    }
+  ]
+}

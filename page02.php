@@ -13,12 +13,12 @@ navbar($nom_page);
     <div class="row mt-5">
         <div class="col-md-6">
             <h4>Notre Histoire</h4>
-            <p>À l'origine de Pasta Pizza se trouvent quatre passionnés de cuisine italienne : Marco, Anna, Luca et Sofia. Ces amis d'enfance ont toujours rêvé de partager leur amour pour les saveurs authentiques de l'Italie. Après des années d'expérience dans les meilleurs restaurants italiens, ils ont décidé de concrétiser leur rêve en créant Pasta Pizza.</p>
+            <p>À l'origine de Pasta Pizza se trouvent quatre passionnés de cuisine italienne : Théo, Kerrian, Adrien et Yann. Ces amis d'enfance ont toujours rêvé de partager leur amour pour les saveurs authentiques de l'Italie. Après des années d'expérience dans les meilleurs restaurants italiens, ils ont décidé de concrétiser leur rêve en créant Pasta Pizza.</p>
         </div>
         
         <div class="col-md-6">
             <h4>Notre Équipe</h4>
-            <p>Marco, le chef exécutif, est un maître dans l'art de préparer des pizzas croustillantes et des pâtes fraîches. Anna, sommelière expérimentée, a sélectionné avec soin les meilleurs vins italiens pour accompagner les délicieux plats de Pasta Pizza. Luca, passionné de culture italienne, a créé une atmosphère chaleureuse et conviviale dans le restaurant. Sofia, la responsable marketing, met en valeur l'authenticité et la passion qui animent Pasta Pizza.</p>
+            <p>Théo, le chef exécutif, est un maître dans l'art de préparer des pizzas croustillantes et des pâtes fraîches. Adrien, sommelier expérimentée, a sélectionné avec soin les meilleurs vins italiens pour accompagner les délicieux plats de Pasta Pizza. Kerrian, passionné de culture italienne, a créé une atmosphère chaleureuse et conviviale dans le restaurant. Yann, le responsable marketing, met en valeur l'authenticité et la passion qui animent Pasta Pizza.</p>
         </div>
     </div>
     
@@ -34,7 +34,8 @@ navbar($nom_page);
         </div>
     </div>
 </div>
-
+<br>
+<br>
 <?php
 page_bot();
 ?>
