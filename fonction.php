@@ -65,8 +65,10 @@ function page_top()
                   
         }else {
           echo'TRUC au pif';
+
           connexion($_POST['user'], $_POST['pass']);
-                }
+          
+        }
   
     } else {
       echo'Connecté en tant que'; echo $_SESSION['user'];
