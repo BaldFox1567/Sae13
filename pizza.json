@@ -1,0 +1,55 @@
+{
+    "categories": [
+      {
+        "name": "Pizzas",
+        "items": [
+          {
+            "name": "Pizza Margherita",
+            "description": "Tomato sauce, mozzarella, fresh basil",
+            "price": "10€",
+            "vegetarian": true,
+            "allergens": ["Gluten", "Lactose"],
+            "image": "img/pizza-margherita.jpg"
+          },
+          {
+            "name": "Pizza Pepperoni",
+            "description": "Tomato sauce, mozzarella, pepperoni",
+            "price": "12€",
+            "vegetarian": false,
+            "allergens": ["Gluten", "Lactose"],
+            "image": "img/pizza-pepperoni.jpg"
+          },
+          {
+            "name": "Pizza Quattro Formaggi",
+            "description": "Tomato sauce, mozzarella, gorgonzola, fontina, Parmesan",
+            "price": "13€",
+            "vegetarian": true,
+            "allergens": ["Gluten", "Lactose"],
+            "image": "img/pizza-quattro-formaggi.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Pâtes",
+        "items": [
+          {
+            "name": "Spaghetti Carbonara",
+            "description": "Spaghetti, eggs, bacon, Parmesan cheese",
+            "price": "10€",
+            "vegetarian": false,
+            "allergens": ["Gluten", "Lactose", "Eggs"],
+            "image": "img/spaghetti-carbonara.jpg"
+          },
+          {
+            "name": "Lasagna",
+            "description": "Layers of pasta, Bolognese sauce, bechamel sauce, Parmesan cheese",
+            "price": "12€",
+            "vegetarian": false,
+            "allergens": ["Gluten", "Lactose"],
+            "image": "img/lasagna.jpg"
+          }
+        ]
+      }
+    ]
+  }
+  
