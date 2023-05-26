@@ -213,7 +213,5 @@ if (!isset($_SESSION)) {
         }
     }
 }
-?>
-    </body>
-    <?php page_bot(); ?>
-</html>
+
+page_bot();
