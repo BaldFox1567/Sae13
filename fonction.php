@@ -9,7 +9,6 @@ function head()
             <title>El Pasta Pizza</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href=".css">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
             <link rel="icon" href="images/logo.png"/>
             <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -28,18 +27,17 @@ function head()
 
 function page_top()
 {
-    echo '
-    <body>
-    <div class="jumbotron text-center" style="margin-bottom:0" >
+  echo '<div class="container-fluid p-5 bg-light text-black text-center">
     <h1>El Pasta Pizza</h1>
-    <p>Y la peperoni</p>
-    </div>';
+    <p>Y la pepperoni</p> 
+  </div>';
+
 }
 
 function page_bot()
 {
     echo '
-        <div class="jumbotron text-center" style="margin-bottom:0">
+        <div class="container-fluid p-5 bg-light text-black text-center">
         <p style="font-size:25px;"><u>El Pasta Pizza</u></p>
         <p style="font-size:15px;">Mail pro : PASTAPIZZA@pizza.peperoni</p>
         <p style="font-size:12px;">Created by PizTeam</p>
@@ -54,7 +52,7 @@ function navbar($pageactive)
 {
     echo '
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <a class="navbar-brand" href="index.php">El Pasta Pizza</a>
+      <a style="margin-left:15px" class="navbar-brand" href="index.php">El Pasta Pizza</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -97,6 +95,7 @@ function navbar($pageactive)
           </li>
         </ul>
       </div>
+      
       <div class="text-black">';
 
     if (!$_SESSION['user']) {
@@ -125,7 +124,7 @@ function navbar($pageactive)
                     </div>
                 </div>
               </div>
-                  <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
+                  <a style="margin-right:10px" class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
                   
         }else {
           echo'TRUC au pif';

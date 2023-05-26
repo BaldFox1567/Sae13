@@ -34,7 +34,8 @@ navbar($nom_page);
         </div>
     </div>
 </div>
-
+<br>
+<br>
 <?php
 page_bot();
 ?>
