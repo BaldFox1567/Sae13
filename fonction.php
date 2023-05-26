@@ -126,8 +126,7 @@ function navbar($pageactive)
                 </div>
               </div>
 
-                  <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
-=======
+
                   <a style="margin-right:10px" class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
 
                   
@@ -250,7 +249,7 @@ function deleteUser($usr)
   foreach ($users as $key => $user) {
       if ($user["user"] == $usr["user"] && $user['role'] != "admin") {
           unset($users[$key]);
-      }
+      } 
   }
   file_put_contents("data/users.json", json_encode($users, JSON_PRETTY_PRINT));
   header("Refresh:0");
