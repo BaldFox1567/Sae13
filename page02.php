@@ -1,5 +1,5 @@
 <?php
-include('fonction.php');
+include 'fonction.php';
 head();
 page_top();
 $nom_page = basename(__FILE__);
