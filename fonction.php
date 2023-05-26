@@ -135,7 +135,7 @@ function navbar($pageactive)
         }
   
     } else {
-      echo'Connecté en tant que'; echo $_SESSION['user'];
+      echo'Connecté en tant que '; echo $_SESSION['user'];
     }
 echo'</div></div>';
 echo'
