@@ -73,6 +73,38 @@
           "image": "img/spaghetti-carbonara.jpg"
         },
         {
+          "name": "Tagliatelle Alfredo",
+          "description": "Tagliatelle pasta, creamy Alfredo sauce, Parmesan cheese",
+          "price": "11€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/tagliatelle-alfredo.jpg"
+        },
+        {
+          "name": "Penne Arrabiata",
+          "description": "Penne pasta, spicy tomato sauce, garlic, chili flakes",
+          "price": "10€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/penne-arrabiata.jpg"
+        },
+        {
+          "name": "Ravioli Spinach and Ricotta",
+          "description": "Homemade spinach and ricotta filled ravioli, tomato sauce",
+          "price": "12€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose", "Eggs"],
+          "image": "img/ravioli-spinach-ricotta.jpg"
+        },
+        {
+          "name": "Farfalle Pesto",
+          "description": "Farfalle pasta, basil pesto sauce, cherry tomatoes, pine nuts",
+          "price": "11€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose", "Nuts"],
+          "image": "img/farfalle-pesto.jpg"
+        },
+        {
           "name": "Lasagna",
           "description": "Layers of pasta, Bolognese sauce, bechamel sauce, Parmesan cheese",
           "price": "12€",
