@@ -33,47 +33,7 @@ function page_top()
     <div class="jumbotron text-center" style="margin-bottom:0" >
     <h1>El Pasta Pizza</h1>
     <p>Y la peperoni</p>
-    
-    <div class="text-black">';
-    if (!$_SESSION['user']) {
-        if (!isset($_POST['submit'])) {
-              echo'   
-              <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalToggleLabel">Authentification : </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                      <div class="modal-body">
-                        <form method="post">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Identifiant</label>
-                            <input type="user" class="form-control" id="user" name="user" placeholder="ex : user">
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Mot de passe</label>
-                            <input type="password" class="form-control" id="pass" name="pass" placeholder="ex : bonjour">
-                          </div>
-                          <button type="submit" name="submit" id="submit" class="btn btn-primary">OK</button>
-                        </form>
-                      </div>
-                    </div>
-                </div>
-              </div>
-                  <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
-                  
-        }else {
-          echo'TRUC au pif';
-
-          connexion($_POST['user'], $_POST['pass']);
-          
-        }
-  
-    } else {
-      echo'Connecté en tant que'; echo $_SESSION['user'];
-    }
-echo'</div></div>';
+    </div>';
 }
 
 function page_bot()
@@ -137,6 +97,48 @@ function navbar($pageactive)
           </li>
         </ul>
       </div>
+      <div class="text-black">';
+
+    if (!$_SESSION['user']) {
+        if (!isset($_POST['submit'])) {
+              echo'   
+              <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalToggleLabel">Authentification : </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                      <div class="modal-body">
+                        <form method="post">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Identifiant</label>
+                            <input type="user" class="form-control" id="user" name="user" placeholder="ex : user">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Mot de passe</label>
+                            <input type="password" class="form-control" id="pass" name="pass" placeholder="ex : bonjour">
+                          </div>
+                          <button type="submit" name="submit" id="submit" class="btn btn-primary">OK</button>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+              </div>
+                  <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
+                  
+        }else {
+          echo'TRUC au pif';
+
+          connexion($_POST['user'], $_POST['pass']);
+          
+        }
+  
+    } else {
+      echo'Connecté en tant que'; echo $_SESSION['user'];
+    }
+echo'</div></div>';
+echo'
     </nav>
     ';
 }
