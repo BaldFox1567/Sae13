@@ -1,6 +1,7 @@
 <?php
 
-function head(){
+function head()
+{
     echo '
     <!DOCTYPE html>
     <html lang="fr">
@@ -73,7 +74,8 @@ function page_top()
 echo'</div></div>';
 }
 
-function page_bot(){
+function page_bot()
+{
     echo '
         <div class="jumbotron text-center" style="margin-bottom:0">
         <p style="font-size:25px;"><u>El Pasta Pizza</u></p>
@@ -86,7 +88,8 @@ function page_bot(){
     ';
 }
 
-function navbar($pageactive){
+function navbar($pageactive)
+{
     echo '
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <a class="navbar-brand" href="index.php">El Pasta Pizza</a>
@@ -97,37 +100,37 @@ function navbar($pageactive){
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link"'; 
-      if($pageactive=="index.php"){echo ' style="color:#3498db;"';}
+      if ($pageactive=="index.php") {echo ' style="color:#3498db;"';}
       echo 'href="index.php">Accueil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"';
-      if($pageactive=="page02.php"){echo ' style="color:#3498db;"';}
+      if ($pageactive=="page02.php") {echo ' style="color:#3498db;"';}
       echo 'href="page02.php">A propos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"'; 
-      if($pageactive=="page03.php"){echo ' style="color:#3498db;"';}
+      if ($pageactive=="page03.php") {echo ' style="color:#3498db;"';}
       echo 'href="page03.php">Menu</a>
           </li>   
           <li class="nav-item">
             <a class="nav-link"'; 
-      if($pageactive=="page04.php"){echo ' style="color:#3498db;"';}
+      if ($pageactive=="page04.php") {echo ' style="color:#3498db;"';}
       echo 'href="page04.php">Commande en ligne</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"'; 
-      if($pageactive=="page05.php"){echo ' style="color:#3498db;"';}
+      if ($pageactive=="page05.php") {echo ' style="color:#3498db;"';}
       echo 'href="page05.php">Réservation</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"'; 
-      if($pageactive=="page06.php"){echo ' style="color:#3498db;"';}
+      if ($pageactive=="page06.php") {echo ' style="color:#3498db;"';}
       echo 'href="page06.php">Contact</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"'; 
-      if($pageactive=="page07.php"){echo ' style="color:#3498db;"';}
+      if ($pageactive=="page07.php") {echo ' style="color:#3498db;"';}
       echo 'href="page07.php">Espace employés</a>
           </li>
         </ul>
@@ -214,7 +217,7 @@ function addUser($usr, $mdp, $role="user")
          echo '
          </div>Usernam déja prit<br/>
          <a type="button" class="btn text-center border border-black mt-3" href="page06.php">Recharger la page</a></div>';
-         pagefooter();
+         page_bot();
          die();
      }
  }
@@ -243,4 +246,3 @@ function deleteUser($usr)
   header("Refresh:0");
 }
 
-?>
