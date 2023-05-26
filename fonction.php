@@ -125,9 +125,6 @@ function navbar($pageactive)
                     </div>
                 </div>
               </div>
-
-                  <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
-=======
                   <a style="margin-right:10px" class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
 
                   
