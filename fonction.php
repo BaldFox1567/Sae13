@@ -29,8 +29,9 @@ function page_top()
 {
   echo '<div class="container-fluid p-5 bg-light text-black text-center">
     <h1>El Pasta Pizza</h1>
-    <p>Y la pepperoni</p> 
-  </div>';
+
+    <p>Y la peperoni</p>
+    </div>';
 
 }
 
@@ -95,7 +96,7 @@ function navbar($pageactive)
           </li>
         </ul>
       </div>
-      
+
       <div class="text-black">';
 
     if (!$_SESSION['user']) {
@@ -124,7 +125,11 @@ function navbar($pageactive)
                     </div>
                 </div>
               </div>
+
+                  <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
+=======
                   <a style="margin-right:10px" class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
+
                   
         }else {
           echo'TRUC au pif';
@@ -134,7 +139,9 @@ function navbar($pageactive)
         }
   
     } else {
-      echo'Connecté en tant que'; echo $_SESSION['user'];
+
+      echo'Connecté en tant que '; echo $_SESSION['user'];
+
     }
 echo'</div></div>';
 echo'
