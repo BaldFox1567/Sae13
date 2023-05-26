@@ -19,6 +19,8 @@ navbar($nom_page);?>
             </div>
             <br>
             <p style="font-size:18px;">Idéalement situé au cœur du centre historique de la glorieuse ville cotière Saint-Malo, El Pasta Pizza s'assure d'être à moins de 5 minutes de marche de vous, habitant ou visiteur d'intramuros. Mais ne vous inquitez pas, notre service de livraison vous trouvera où que vous soyez dans la ville.</p>
+            <br>
+            <h3>Nos engagements<h3>
         </div>
 
     </div>
