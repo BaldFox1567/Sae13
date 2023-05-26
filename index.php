@@ -25,7 +25,7 @@ navbar($nom_page);?>
             <br>
             <div style="text-align:center">
 
-            <form action="page04.php">
+            <form action="page04.php" method="POST">
                 <label for="resto">Choisissez parmis nos restaurants</label><br>
                 <select class="form-control" name="resto" id="resto">
                     <option value="intra">Saint-Malo - Intramuros</option>
@@ -38,16 +38,21 @@ navbar($nom_page);?>
                         <label for="pizza">Quelle Pizza vous fais envie ?</label><br>
                         <select class="form-control" name="pizza" id="pizza">
                             <option value="">Choisissez votre Pizza</option>
-                            <option value"4from">La Quattro Fromagi !</option>
-                            <option value"marga">La Margarita !</option>
+                            <option value="from">La Quattro Fromagi !</option>
+                            <option value="marg">La Margherita !</option>
+                            <option value="pepp">El Pepperoni !</option>
+                            <option value="pros">La Prosciutto !</option>
+                            <option value="capr">La Capricciosa !</option>
+                            <option value="hawa">L'Hawaiian !</option>
+                            <option value="vege">Li Vegetarian !</option>
                         </select>
                     </div>
                     <div class="col">
                         <label for="pasta">Ne lésinez pas sur les Pasta !</label><br>
                         <select class="form-control" name="pasta" id="pasta">
                             <option value="">Choisissez vos Pasta</option>
-                            <option value="pate1">J'ai pas les noms des pâtes</option>
-                            <option value="pate2">Toujours pas</option>
+                            <option value="carb">Los Carbonaras !</option>
+                            <option value="lasa">Li deus Lasagna !</option>
                         </select>
                     </div>
                 </div>
