@@ -6,54 +6,62 @@ $nom_page = basename(__FILE__);
 navbar($nom_page);
 ?>
 
-<div class="container">
-    <h2 class="text-center mt-5">Menu</h2>
-    
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="./img/pizza-vegetarienne-hiver-8-2-2.jpg" alt="Pizza 1" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Pizza Végétarienne</h5>
-                    <p class="card-text">Une délicieuse pizza végétarienne avec une variété de légumes frais.</p>
-                    <p class="card-text">Prix : 10€</p>
-                    <p class="card-text">Options végétariennes : Oui</p>
-                    <p class="card-text">Allergènes : Gluten, Lactose</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card">
-                <img src="./img/pizza-napolitaine.jpg" alt="Pizza 2" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Pizza Napolitaine</h5>
-                    <p class="card-text">Une pizza classique de style napolitain avec une sauce tomate savoureuse et du fromage fondant.</p>
-                    <p class="card-text">Prix : 12€</p>
-                    <p class="card-text">Options végétariennes : Non</p>
-                    <p class="card-text">Allergènes : Gluten, Lactose</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card">
-                <img src="./img/pizza-napolitaine2.jpg" alt="Pizza 3" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Pizza Spéciale</h5>
-                    <p class="card-text">Une pizza spéciale avec un mélange unique de viandes, de légumes et d'épices.</p>
-                    <p class="card-text">Prix : 15€</p>
-                    <p class="card-text">Options végétariennes : Oui</p>
-                    <p class="card-text">Allergènes : Gluten, Lactose</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Ajoutez ici les autres pizzas -->
-    </div>
-    
-    <!-- Ajoutez les autres catégories de plats de la même manière -->
-    
+<div class="container mt-5">
+    <h2 class="text-center">Menu</h2>
+
+    <?php
+    // Charger le contenu du fichier pizza.json
+    $json = file_get_contents('pizza.json');
+    // Convertir le contenu JSON en tableau associatif
+    $data = json_decode($json, true);
+
+    // Parcourir les catégories de plats
+    foreach ($data['categories'] as $category) {
+        echo '<h4 class="mt-5">' . $category['name'] . '</h4>';
+        echo '<div class="row mt-4">';
+
+        // Parcourir les plats de la catégorie
+        foreach ($category['items'] as $item) {
+            echo '<div class="col-md-4">';
+            echo '<div class="card">';
+            $image = ''; // Variable pour stocker le nom de l'image
+
+            // Affecter le nom de l'image en fonction du plat
+            switch ($item['name']) {
+                case 'Pizza Carbonara':
+                    $image = 'Carbonara.jpg';
+                    break;
+                case 'Pizza Margherita':
+                    $image = 'Margherita.jpg';
+                    break;
+                case 'Pizza Pepperoni':
+                    $image = 'Pepperoni.jpg';
+                    break;
+                case 'Pizza Quatro':
+                    $image = 'Quatro.jpg';
+                    break;
+                case 'Lasagna':
+                    $image = 'Lasagna.jpg';
+                    break;
+                // Ajoutez d'autres cas pour les autres plats de pizza
+            }
+
+            // Afficher l'image et les détails du plat
+            echo '<img src="./img/' . $image . '" alt="' . $item['name'] . '" class="card-img-top">';
+            echo '<div class="card-body">';
+            echo '<h5 class="card-title">' . $item['name'] . '</h5>';
+            echo '<p class="card-text">' . $item['description'] . '</p>';
+            echo '<p class="card-text">Prix : ' . $item['price'] . '</p>';
+            echo '<p class="card-text">Options végétariennes : ' . ($item['vegetarian'] ? 'Oui' : 'Non') . '</p>';
+            echo '<p class="card-text">Allergènes : ' . implode(', ', $item['allergens']) . '</p>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+
+        echo '</div>';
+    }
+    ?>
 </div>
 
 <?php
