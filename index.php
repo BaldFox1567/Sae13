@@ -17,7 +17,8 @@ navbar($nom_page);?>
                 <img src="img/chefcuisto.jpg" width="100%" height="100%">
             </div>
             <br>
-            <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum<p>
+            <p>
+Le Chef Cuisto est un talentueux passionné de cuisine, toujours à la recherche de saveurs uniques et d'associations audacieuses. Sa créativité et son expertise culinaire lui permettent de créer des plats délicieux et visuellement époustouflants. Il privilégie les ingrédients frais et de qualité, tout en inspirant son équipe avec sa passion et son dévouement. Une expérience gastronomique inoubliable vous attend entre les mains expertes du Chef Cuisto.<p>
 
 
 
@@ -67,6 +68,7 @@ navbar($nom_page);?>
             <p style="font-size:18px;">Idéalement situé au cœur du centre historique de la glorieuse ville cotière Saint-Malo, nos trois restaurant El Pasta Pizza s'assure d'être à moins de 5 minutes de marche de vous, habitant ou visiteur d'intramuros, de Paramé, ou de Rotheneuf. Mais ne vous inquitez pas, notre service de livraison vous trouvera où que vous soyez dans la ville.</p>
             <br>
             <h3>Nos engagements</h3>
+            <p>Notre entreprise est engagée à offrir des produits et services de la plus haute qualité tout en respectant l'environnement et en favorisant le bien-être de nos clients. Nous nous efforçons de répondre aux attentes et aux besoins de notre clientèle en proposant des solutions durables et responsables. Nous sélectionnons avec soin nos fournisseurs et privilégions les partenariats avec des entreprises qui partagent nos valeurs de durabilité et d'éthique. De plus, nous nous engageons à minimiser notre empreinte environnementale en adoptant des pratiques éco-responsables, telles que la réduction des déchets, l'utilisation d'emballages recyclables et la promotion de l'efficacité énergétique. Nous mettons un point d'honneur à promouvoir une alimentation saine et équilibrée en privilégiant des ingrédients frais et de qualité. Notre objectif est de créer une expérience positive pour nos clients tout en contribuant à un monde meilleur.</p>
         </div>
 
     </div>
