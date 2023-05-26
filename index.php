@@ -65,7 +65,7 @@ Le Chef Cuisto est un talentueux passionné de cuisine, toujours à la recherche
 
         <div class="col-sm-8">
             <div style="text-align:center">
-                <h2 >Où somme nous ?</h2>
+                <h2 >Où sommes nous ?</h2>
                 <br>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d850.4229379587806!2d-2.026063133893843!3d48.64890255826387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480e811088a80bbd%3A0xb9049f03365482ab!2sSaint-Malo%20Intra-Muros!5e0!3m2!1sfr!2sfr!4v1685085706603!5m2!1sfr!2sfr" width="1000" height="560" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"title="Main content"></iframe>
             </div>
