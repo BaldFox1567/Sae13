@@ -16,7 +16,7 @@ if (!isset($_SESSION)) {
         sleep(2);
         header("Location: page01.php");
     } else {
-        include "./fonctions.php";
+        include "./fonction.php";
         
         $users = json_decode(file_get_contents("data/users.json"), true);
         echo '
