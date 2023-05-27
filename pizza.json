@@ -52,6 +52,22 @@
           "image": "img/pizza-hawaiian.jpg"
         },
         {
+          "name": "Pizza Funghi",
+          "description": "Tomato sauce, mozzarella, mushrooms, black olives, oregano",
+          "price": "11€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-funghi.jpg"
+        },
+        {
+          "name": "Pizza Provencale",
+          "description": "Tomato sauce, mozzarella, bell peppers, onions, zucchini, herbs de Provence",
+          "price": "12€",
+          "vegetarian": true,
+          "allergens": ["Gluten", "Lactose"],
+          "image": "img/pizza-provencale.jpg"
+        },
+        {
           "name": "Pizza Vegetariana",
           "description": "Tomato sauce, mozzarella, bell peppers, onions, olives, mushrooms",
           "price": "11€",
