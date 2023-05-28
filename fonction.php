@@ -22,16 +22,15 @@ function head()
             </style>
         </head>
         ';
-        session_start();
+    session_start();
 }
 
 function page_top()
 {
-  echo '<div class="container-fluid p-5 bg-light text-black text-center">
+    echo '<div class="container-fluid p-5 bg-light text-black text-center">
     <h1>El Pasta Pizza</h1>
     <p>Y la pepperoni</p> 
   </div>';
-
 }
 
 function page_bot()
@@ -60,101 +59,65 @@ function navbar($pageactive)
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link"'; 
-      if ($pageactive=="index.php") {echo ' style="color:#3498db;"';}
-      echo 'href="index.php">Accueil</a>
+    if ($pageactive=="index.php") {echo ' style="color:#3498db;"';}
+    echo 'href="index.php">Accueil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"';
-      if ($pageactive=="page02.php") {echo ' style="color:#3498db;"';}
-      echo 'href="page02.php">A propos</a>
+    if ($pageactive=="page02.php") {echo ' style="color:#3498db;"';}
+    echo 'href="page02.php">A propos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"'; 
-      if ($pageactive=="page03.php") {echo ' style="color:#3498db;"';}
-      echo 'href="page03.php">Menu</a>
+    if ($pageactive=="page03.php") {echo ' style="color:#3498db;"';}
+    echo 'href="page03.php">Menu</a>
           </li>   
           <li class="nav-item">
             <a class="nav-link"'; 
-      if ($pageactive=="page04.php") {echo ' style="color:#3498db;"';}
-      echo 'href="page04.php">Commande en ligne</a>
+    if ($pageactive=="page04.php") {echo ' style="color:#3498db;"';}
+    echo 'href="page04.php">Commande en ligne</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"'; 
-      if ($pageactive=="page05.php") {echo ' style="color:#3498db;"';}
-      echo 'href="page05.php">Réservation</a>
+    if ($pageactive=="page05.php") {echo ' style="color:#3498db;"';}
+    echo 'href="page05.php">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link"'; 
-      if ($pageactive=="page06.php") {echo ' style="color:#3498db;"';}
-      echo 'href="page06.php">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"'; 
-      if ($pageactive=="page07.php") {echo ' style="color:#3498db;"';}
-      echo 'href="page07.php">Espace employés</a>
-          </li>
-        </ul>
-      </div>
-      
-      <div class="text-black">';
+        </ul>';
 
-    if (!$_SESSION['user']) {
-        if (!isset($_POST['submit'])) {
-              echo'   
-              <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalToggleLabel">Authentification : </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                      <div class="modal-body">
-                        <form method="post">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Identifiant</label>
-                            <input type="user" class="form-control" id="user" name="user" placeholder="ex : user">
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Mot de passe</label>
-                            <input type="password" class="form-control" id="pass" name="pass" placeholder="ex : bonjour">
-                          </div>
-                          <button type="submit" name="submit" id="submit" class="btn btn-primary">OK</button>
-                        </form>
-                      </div>
-                    </div>
-                </div>
-              </div>
-                  <a style="margin-right:10px" class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
-                  
-        }else {
-          echo'TRUC au pif';
-
-          connexion($_POST['user'], $_POST['pass']);
-          
-        }
-  
+    // Add the connection button
+    if (!isset($_SESSION['user'])) {
+        echo '
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="connexion.php">Connexion</a>
+          </li>
+        </ul>';
     } else {
-      echo'Connecté en tant que'; echo $_SESSION['user'];
+        echo '
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="deconnexion.php">Déconnexion</a>
+          </li>
+        </ul>';
     }
-echo'</div></div>';
-echo'
+
+    echo '
+      </div>  
     </nav>
     ';
 }
 
-/////// Gestion des Utilisateurs ///////
 
-function connexion($user, $mdp)
+function connexion($user, $pass)
 {
-  $data = json_decode(file_get_contents("./data/users.json", true), true); 
-  foreach ($data as $us) {
-    if ($us['user'] == $user && password_verify($mdp, $us['mdp'])) {
-      $_SESSION['user'] = $us['user'];
-      $_SESSION['mdp'] = $us['mdp'];
-      $_SESSION['role'] = $us['role'];
-    }
-  }
-header('Refresh:0');
+    // Perform authentication and validation here
+
+    // If authentication is successful, set the "user" key in the $_SESSION array
+    $_SESSION['user'] = $user;
+
+    // Redirect the user to the desired page
+    header('Location: page03.php');
+    exit();
 }
 
 function deconnexion()
