@@ -253,3 +253,4 @@ function deleteUser($usr)
   header("Refresh:0");
 }
 
+}
