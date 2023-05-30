@@ -1,5 +1,9 @@
 <?php
 
+if (isset($_GET['deco'])) {
+  deconnexion();
+}
+
 function head()
 {
     echo '
@@ -94,10 +98,17 @@ function navbar($pageactive)
       if ($pageactive=="page07.php") {echo ' style="color:#3498db;"';}
       echo 'href="page07.php">Espace employés</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link"'; 
+      if ($pageactive=="page08.php") {echo ' style="color:#3498db;"';}
+      echo 'href="page08.php">Feur</a>
+          </li>
         </ul>
       </div>
 
       <div class="text-black">';
+
+
 
     if (!$_SESSION['user']) {
         if (!isset($_POST['submit'])) {
@@ -105,47 +116,40 @@ function navbar($pageactive)
               <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalToggleLabel">Authentification : </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                      <div class="modal-body">
-                        <form method="post">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Identifiant</label>
-                            <input type="user" class="form-control" id="user" name="user" placeholder="ex : user">
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Mot de passe</label>
-                            <input type="password" class="form-control" id="pass" name="pass" placeholder="ex : bonjour">
-                          </div>
-                          <button type="submit" name="submit" id="submit" class="btn btn-primary">OK</button>
-                        </form>
-                      </div>
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalToggleLabel">Authentification : </h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div class="modal-body">
+                      <form method="post">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Identifiant</label>
+                          <input type="user" class="form-control" id="user" name="user" placeholder="ex : user">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Mot de passe</label>
+                          <input type="password" class="form-control" id="pass" name="pass" placeholder="ex : bonjour">
+                        </div>
+                        <button type="submit" name="submit" id="submit" class="btn btn-primary">OK</button>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
 
 
-                  <a style="margin-right:10px" class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Connexion</a>';
+              <a style="margin-right:10px" class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><u>Connexion</u></a>';
 
                   
-        }else {
-          echo'TRUC au pif';
+        }else {connexion($_POST['user'], $_POST['pass']);}
+      }
 
-          connexion($_POST['user'], $_POST['pass']);
-          
-        }
+      else {
+        echo '<p style="margin-right:15px;color:white">Connecté en tant que ' . $_SESSION['user'].'</p>';
+        echo '<button class="btn btn-primary"><a style="color:white" href="fonction.php?deco=true">Déconnexion</a></button>';      
+  }
   
-    } else {
-
-      echo'Connecté en tant que '; echo $_SESSION['user'];
-
-    }
-echo'</div></div>';
-echo'
-    </nav>
-    ';
+  echo'</div></div></nav>';
 }
 
 /////// Gestion des Utilisateurs ///////
@@ -166,6 +170,7 @@ header('Refresh:0');
 function deconnexion()
 {
   $_SESSION = [];
+  session_start();
   session_unset();
   session_destroy();
   header("Location: index.php");
