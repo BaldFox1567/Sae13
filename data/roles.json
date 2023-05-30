@@ -9,18 +9,16 @@
         "description": "par default",
         "access": "NORMAL"
     },
-    "employes": {
-        "directeur": {        
-            "name": "directeur",
-            "description": "Le Directeur",
-            "access": "DIRECT"},
-        "chef": {
-            "name": "chef",
-            "description": "Chef du restaurant",
-            "access": "INTRA_CHEF"},
-        "salarie": {
-            "name": "salarie",
-            "description": "Membres salariés",
-            "access": "INTRA"}
-    }
+    "directeur": {        
+        "name": "directeur",
+        "description": "Le Directeur",
+        "access": "DIRECT"},
+    "chef": {
+        "name": "chef",
+        "description": "Chef du restaurant",
+        "access": "INTRA_CHEF"},
+    "salarie": {
+        "name": "salarie",
+        "description": "Membres salariés",
+        "access": "INTRA"}
 }

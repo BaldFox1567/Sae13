@@ -21,17 +21,15 @@ if (!isset($_SESSION)) {
         $users = json_decode(file_get_contents("data/users.json"), true);
         echo '
             <body>
-
             <div class="container mb-1 col-10">
                 <h1 class="my-4 text-center">Administration</h1>
                 <hr>
                 <div class="list-group list-group-flush text-center">
-                    <a href="#utilisateurs" class="list-group-item list-group-item-action">Gestion Utilisateurs</a>
-
+                Gestion Utilisateurs
                 </div>
                 <hr>
                 ';
-        echo '<div class="mt-2 fw-bold text-center">$_SESSION array content<pre>';
+        echo '<div class="mt-2 fw-bold text-center">$_SESSION<pre>: ';
         echo print_r($_SESSION).'</pre></div>';
         echo '
             <h4>Recherchez des utilisateurs</h4>
@@ -47,7 +45,7 @@ if (!isset($_SESSION)) {
                 } else {
                     $nom = $_POST["username"];
                     $mdp = $_POST["usermdp"];
-                    //First verifying who he's in the database
+                    //Qui est connecter
                     $database = json_decode(file_get_contents('data/users.json', true), true);
                     foreach ($database as $user) {
                         if ($user["user"] == $nom && $mdp == $user["mdp"]) {
@@ -62,7 +60,7 @@ if (!isset($_SESSION)) {
                     <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
                     <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                     </svg> An error might have occurred    <br/>
-                    <a type="button" class="btn text-center border border-black mt-3" href="page06.php">reload page</a></div>';
+                    <a type="button" class="btn text-center border border-black mt-3" href="page07.php">reload page</a></div>';
 
                     
                 }
@@ -124,7 +122,7 @@ if (!isset($_SESSION)) {
                 }
             }
 
-        /****************************** The exact same page, after the searching button was clicked (if isset(button))***************************************** */          
+        /****************************** La meme page apres (if isset(button))***************************************** */          
         } else {
             findUsers($_POST['input_user']);
             echo '
