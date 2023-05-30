@@ -168,7 +168,7 @@ function deconnexion()
   $_SESSION = [];
   session_unset();
   session_destroy();
-  header("Location: page01.php");
+  header("Location: index.php");
 }
 
 function newUsers() 
@@ -255,3 +255,98 @@ function deleteUser($usr)
   header("Refresh:0");
 }
 
+function getUsers($database)
+{
+  if (!isset($database)) {
+      $path ="data/users.json";
+      $users = json_decode(file_get_contents($path, true), true);
+      echo '
+      <div class="container mb-1 col-10">
+          <span class="align-middle">Nombre d\'utilisateurs : '.count($users).'</span>
+      </div>
+      <div class="container pb-4 pt-3 px-2 text-white border-black border-2 rounded-2 bg-black bg-gradient col-10">
+          <h3 class="mt-4 mx-1">Les Utilisateurs correspondants : </h3>
+          recherche de tous les utilisateurs : '.count($users).' résultats trouvés
+              <div class="d-flex justify-content-center pb-4 pt-3 px-3 ms-5">
+                  <table class="table text-white-50 table-hover">
+                      <thead>
+                          <tr>
+                              <th scope="col">Utilisateur</th>
+                              <th scope="col">Mot de passe</th>
+                              <th scope="col">Rôle</th>
+                          </tr>
+                      </thead>
+                      <tbody>';
+      foreach ($users as $user) { //hidden inputs so that I can retrieve who's button was clicked
+          echo '
+              <tr>
+              <th scope="row">'.$user["user"].'</th>
+              <td>'.
+              $user['mdp'].'</td>
+              <td>'.
+              $user['role'].'</td>
+              <td style="border: none"><form method="post">
+                  <input type="hidden" name="username" value="'.$user['user'].'">
+                  <input type="hidden" name="usermdp" value="'.$user['mdp'].'">
+                  <input type="submit" name="delete_usr" class="btn btn-sm btn-danger text-decoration-none" value="X">
+              </form></td>
+              </tr>
+          ';
+      }
+  }else {
+      echo '
+      <div class="container mb-1 col-10">
+          <span class="align-middle">Nombre d\'utilisateurs : '.count($database).'</span>
+      </div>
+      <div class="container pb-4 pt-3 px-2 text-white border-black border-2 rounded-2 bg-black bg-gradient col-10">
+          <h3 class="mt-4 mx-1">Les Utilisateurs correspondants : </h3>
+          recherche de tous les utilisateurs : '.count($database).' résultats trouvés
+              <div class="d-flex justify-content-center pb-4 pt-3 px-3 ms-5">
+                  <table class="table text-white-50 table-hover">
+                      <thead>
+                          <tr>
+                              <th scope="col">Utilisateur</th>
+                              <th scope="col">Mot de passe</th>
+                              <th scope="col">Rôle</th>
+                          </tr>
+                      </thead>
+                      <tbody>';
+      foreach ($database as $user) {
+          echo '
+          <tr>
+          <th scope="row">'.$user['user'].'</th>
+          <td>'.
+          $user['mdp'].'</td>
+          <td>'.
+          $user['role'].'</td>
+          <td style="border: none"><form method="post">
+              <input type="hidden" name="username" value="'.$user['user'].'">
+              <input type="hidden" name="usermdp" value="'.$user['mdp'].'">
+              <input type="submit" name="delete_usr" class="btn btn-sm btn-danger text-decoration-none" value="X">
+          </form></td>
+          </tr>
+      ';
+      }
+  }
+}
+
+function findUsers($text)
+{
+  $founded_users=[];
+  $text = htmlspecialchars(strtolower($text));
+  $users = json_decode(file_get_contents("data/users.json", true), true);
+  $text = explode(" ", $text);
+  foreach ($text as $key) {
+      foreach ($users as $user) {
+          if (str_contains(strtolower($user["user"]), $key)) {
+              array_push($founded_users, $user);
+          }
+      }
+  }
+  foreach ($founded_users as $key => $founded) {
+      if (array_search($founded, $founded_users) !== $key) {
+          unset($founded_users[$key]);
+        }
+  }
+  getUsers($founded_users);
+}
