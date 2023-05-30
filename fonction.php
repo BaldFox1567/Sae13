@@ -264,11 +264,11 @@ function getUsers($database)
       <div class="container mb-1 col-10">
           <span class="align-middle">Nombre d\'utilisateurs : '.count($users).'</span>
       </div>
-      <div class="container pb-4 pt-3 px-2 text-white border-black border-2 rounded-2 bg-black bg-gradient col-10">
+      <div class="container pb-4 pt-3 px-2  border-black border-2 rounded-2 col-10">
           <h3 class="mt-4 mx-1">Les Utilisateurs correspondants : </h3>
           recherche de tous les utilisateurs : '.count($users).' résultats trouvés
               <div class="d-flex justify-content-center pb-4 pt-3 px-3 ms-5">
-                  <table class="table text-white-50 table-hover">
+                  <table class="table text-50 table-hover">
                       <thead>
                           <tr>
                               <th scope="col">Utilisateur</th>
