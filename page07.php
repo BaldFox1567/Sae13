@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include "./fonction.php";
 head();
 page_top();
 $nom_page = basename(__FILE__);
@@ -9,29 +10,27 @@ navbar($nom_page);
 if (!isset($_SESSION)) {
     echo '<script>alert("You don\'t have the rights");</script>';
     sleep(2);
-    header("Location: page01.php"); 
+    header("Location: index.php"); 
 } else {
     if (!(isset($_SESSION['role']) && ($_SESSION['role']=="admin" || $_SESSION['role']=="superadmin"))) {
         echo '<script>alert("You don\'t have the rights");</script>';
         sleep(2);
-        header("Location: page01.php");
+        header("Location: index.php");
     } else {
-        include "./fonction.php";
+
         
         $users = json_decode(file_get_contents("data/users.json"), true);
         echo '
             <body>
-
             <div class="container mb-1 col-10">
                 <h1 class="my-4 text-center">Administration</h1>
                 <hr>
                 <div class="list-group list-group-flush text-center">
-                    <a href="#utilisateurs" class="list-group-item list-group-item-action">Gestion Utilisateurs</a>
-
+                Gestion Utilisateurs
                 </div>
                 <hr>
                 ';
-        echo '<div class="mt-2 fw-bold text-center">$_SESSION array content<pre>';
+        echo '<div class="mt-2 fw-bold text-center">$_SESSION<pre>: ';
         echo print_r($_SESSION).'</pre></div>';
         echo '
             <h4>Recherchez des utilisateurs</h4>
@@ -47,7 +46,7 @@ if (!isset($_SESSION)) {
                 } else {
                     $nom = $_POST["username"];
                     $mdp = $_POST["usermdp"];
-                    //First verifying who he's in the database
+                    //Qui est connecter
                     $database = json_decode(file_get_contents('data/users.json', true), true);
                     foreach ($database as $user) {
                         if ($user["user"] == $nom && $mdp == $user["mdp"]) {
@@ -61,8 +60,8 @@ if (!isset($_SESSION)) {
                     </div><div class="text-center text-danger fw-bold mb-4 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle mb-1" viewBox="0 0 16 16">
                     <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
                     <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
-                    </svg> An error might have occurred    <br/>
-                    <a type="button" class="btn text-center border border-black mt-3" href="page06.php">reload page</a></div>';
+                    </svg> Error 2 <br/>
+                    <a type="button" class="btn text-center border border-black mt-3" href="page07.php">reload page</a></div>';
 
                     
                 }
@@ -102,29 +101,11 @@ if (!isset($_SESSION)) {
                                 <input type="password" class="form-control list-group-item form-floating shadow-none passwords" id="mdpverif" name="mdpverif" placeholder="repeat password" required>
                                 <label class="text-muted" for="mdpverif">repeat password</label>
                             </div>
-                            <div class="form-check form-switch">
-                                <input type="checkbox" name="mdp_check" class="form-check-input my-2 p-2" id="dontwatchme">
-                                <label for="mdp_check"> rendre visible</label>
-                                <script src="js/pass_verif.js"></script>
-                            </div>
+                        
                             <button type="submit" name="add_user" class="btn btn-success">+</button>
                         </form>
                     </div>';
-                    echo '<br><br>
-                    <div class="position-relative">
-                        <div role="alert" aria-live="assertive" aria-atomic="true" class="toast position-absolute show top-50 start-50 translate-middle" data-bs-autohide="false">
-                            <div class="toast-header">
-                                <img src="images/louis.png" class="rounded ms-1 me-2" alt="bugslogo" width="20" height="20">
-                                <strong class="me-auto">Need a reboot ?</strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                            </div>
-                            <div class="toast-body text-center">
-                                <a type="button" href="crea_user.php" class="btn btn-outline-danger" name="resetall">Reset all database (crea_user)</a>
-                            </div>
-                        </div>
-                    </div><br><br>
-                    <script src="js/toaster.js"></script>
-                    ';
+                    
             } else {
 
                 if (!isset($_POST["user"]) || ($_POST["mdp"] != $_POST["mdpverif"])) {
@@ -134,7 +115,7 @@ if (!isset($_SESSION)) {
                     <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
                     <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                     </svg> Le mot de passe n\'est pas correct !<br/>
-                    <a type="button" class="btn text-center border border-black mt-3" href="page06.php">reload page</a></div>';
+                    <a type="button" class="btn text-center border border-black mt-3" href="page07.php">reload page</a></div>';
                 } elseif ($_POST['role'] == "Choix du rôle") {
                     addUser($_POST['user'], $_POST['mdp']);
                 } else {
@@ -142,7 +123,7 @@ if (!isset($_SESSION)) {
                 }
             }
 
-        /****************************** The exact same page, after the searching button was clicked (if isset(button))***************************************** */          
+        /****************************** La meme page apres (if isset(button))***************************************** */          
         } else {
             findUsers($_POST['input_user']);
             echo '
@@ -179,29 +160,9 @@ if (!isset($_SESSION)) {
                             <input type="password" class="form-control list-group-item form-floating shadow-none passwords" id="mdpverif" name="mdpverif" placeholder="repeat password" required>
                             <label class="text-muted" for="mdpverif">repeat password</label>
                         </div>
-                        <div class="form-check form-switch">
-                            <input type="checkbox" name="mdp_check" class="form-check-input my-2 p-2" id="dontwatchme">
-                            <label for="mdp_check"> rendre visible</label>
-                            <script src="js/pass_verif.js"></script>
-                        </div>
                         <button type="submit" name="add_user" class="btn btn-success">+</button>
                     </form>
                 </div>';
-                echo '
-                <div role="alert" aria-live="assertive" aria-atomic="true" class="toast position-static show top-0 end-0" data-bs-autohide="false">
-                <div class="toast-header">
-                    <img src="images/louis.png" class="rounded ms-1 me-2" alt="bugslogo" width="20" height="20">
-                    <strong class="me-auto">Need a reboot ?</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body text-center">
-                <form method="post">
-                    <a type="button" href="crea_user" class="btn btn-outline-danger" name="resetall">Reset all the user\'s database to default</a>
-                </form>
-                </div>
-            </div>
-            <script src="js/toaster.js"></script>
-            ';
             } else {
                 if (!isset($_POST["user"]) || ($_POST["mdp"] != $_POST["mdpverif"])) {
                     echo '
@@ -209,7 +170,7 @@ if (!isset($_SESSION)) {
                     <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
                     <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                     </svg> Le mot de passe n\'est pas correct !<br/>
-                    <a type="button" class="btn text-center border border-black mt-3" href="page06.php">reload page</a></div>';
+                    <a type="button" class="btn text-center border border-black mt-3" href="page07.php">reload page</a></div>';
                 } elseif ($_POST['role'] == "Choix du rôle") {
                     addUser($_POST['user'], $_POST['mdp']);
                 } else {
