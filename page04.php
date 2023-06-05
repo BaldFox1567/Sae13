@@ -10,18 +10,21 @@ $resto = $_POST['resto'];
 $pizza = $_POST['pizza'];
 $pasta = $_POST['pasta'];
 
-function resto($local, $resto){
-    if($local == $resto){
+function resto($local, $resto)
+{
+    if ($local == $resto) {
         echo ' selected="selected" ';
     }
 }
-function pizza($local, $pizza){
-    if($local == $pizza){
+function pizza($local, $pizza)
+{
+    if ($local == $pizza) {
         echo ' selected="selected" ';
     }
 }
-function pasta($local, $pasta){
-    if($local == $pasta){
+function pasta($local, $pasta)
+{
+    if ($local == $pasta) {
         echo ' selected="selected" ';
     }
 }

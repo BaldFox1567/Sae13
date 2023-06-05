@@ -7,7 +7,7 @@ page_top();
 $nom_page = basename(__FILE__);
 navbar($nom_page);
 
-if (!isset($_SESSION)) {
+if (session_status() == PHP_SESSION_NONE) {
     echo '<script>alert("You don\'t have the rights");</script>';
     sleep(2);
     header("Location: index.php"); 
@@ -35,7 +35,7 @@ if (!isset($_SESSION)) {
         echo '
             <h4>Recherchez des utilisateurs</h4>
                 <form method="post" class="mb-2">
-                    <input type="search" name="input_user" class="shadow-none form_control" placeholder="partie du pseudo">
+                    <input type="search" name="input_user" class="shadow-none form-control" placeholder="partie du pseudo">
                     <button type="submit" name="which_user" class="btn badge text-wrap bg-primary">Rechercher</button>
                 </form>
         </div>';
