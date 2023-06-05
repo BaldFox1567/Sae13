@@ -45,8 +45,8 @@ if (!isset($_SESSION)) {
             echo '<p>Aucun utilisateur trouvé.</p>';
         }
 
-        echo '<h1>Ajouter un utilisateur</h1>
-        
+        echo '<h2>Ajouter un utilisateur</h2>
+        <div class="container col-5 d-flex content-center border-4 border mt-2 mb-4">
         <form method="post">
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" required><br>
@@ -58,7 +58,8 @@ if (!isset($_SESSION)) {
             <input type="text" id="telephone" name="telephone" required><br>
 
             <input type="submit" name="submit" value="Ajouter">
-        </form>';
+        </form>
+        </div>';
     }
 }
 
