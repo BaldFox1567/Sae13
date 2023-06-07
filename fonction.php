@@ -358,7 +358,7 @@ function findUsers($text)
 function creerAnnuaire($nom, $prenom, $telephone) 
 {
     // Vérifier si le fichier JSON existe
-    $fichier = './data/annuaire.json';
+    $fichier = 'data/annuaire.json';
     $utilisateurs = [];
 
     if (file_exists($fichier)) {
@@ -382,8 +382,13 @@ function creerAnnuaire($nom, $prenom, $telephone)
     // Convertir le tableau en JSON
     $nouveauContenu = json_encode($utilisateurs, JSON_PRETTY_PRINT);
 
-    // Écrire le contenu JSON dans le fichier
-    file_put_contents($fichier, $nouveauContenu);
+    // Écrire le contenu JSON dans le fichier avec gestion des erreurs
+    if (file_put_contents($fichier, $nouveauContenu) !== false) {
+      return true; // Succès de l'écriture du fichier
+  } else {
+      return false; // Échec de l'écriture du fichier
+  }
+    
 }
 
 
