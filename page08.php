@@ -20,7 +20,11 @@ if (isset($_POST['submit'])) {
     $telephone = $_POST['telephone'];
 
     // Appeler la fonction de création d'utilisateur
-    creerAnnuaire($nom, $prenom, $telephone);
+    if (creerAnnuaire($nom, $prenom, $telephone)) {
+        echo "réussi";
+    } else {
+        echo "frérot ?";
+    }
 }
 
 $fichier = './data/annuaire.json';
