@@ -100,7 +100,7 @@ function navbar($pageactive)
           <li class="nav-item">
             <a class="nav-link"'; 
       if ($pageactive=="page08.php") {echo ' style="color:#3498db;"';}
-      echo 'href="page08.php">Feur</a>
+      echo 'href="page08.php">Annuaire</a>
           </li>
         </ul>
       </div>

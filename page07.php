@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 include "./fonction.php";
 head();
 page_top();
@@ -189,7 +188,7 @@ echo    '<br><br><div class="row" style="text-align:center">
             foreach($scandir as $test){
                 $dir = $nom_dossier.$test;
                 if($test != "." && $test != ".."){
-                    echo "<a href='$dir'>$test<br></a>";    
+                    echo "<a href='$dir'>$test<br></a>";
                 }
             }
 echo    '</div><br>';
