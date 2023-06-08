@@ -31,13 +31,12 @@ function head()
 
 function page_top()
 {
-  echo '<div class="container-fluid p-5 bg-light text-black text-center">
-    <h1>El Pasta Pizza</h1>
-
-    <p>Y la peperoni</p>
+  echo '<div class="container-fluid p-0">
+    <img src="img/banniere_web.jpg" alt="Bannière" style="width: 100%">
     </div>';
-
 }
+
+
 
 function page_bot()
 {
