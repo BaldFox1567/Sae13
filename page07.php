@@ -125,12 +125,14 @@ if (!isset($_SESSION)) {
 
         /****************************** La meme page apres (if isset(button))***************************************** */          
         } else {
+
+
             findUsers($_POST['input_user']);
             echo '
-            </tbody>
-            </table>
-            </div>
-        </div>';
+                </tbody>
+                </table>
+                </div>
+            </div>';
 
         if (!isset($_POST["add_user"])) {
             echo '
@@ -180,6 +182,17 @@ if (!isset($_SESSION)) {
         }
     }
 }
+echo    '<div class="row" style="text-aligns:center">
+            <p>Fichier de commandes client</p>';
+            $nom_dossier = "data/commandes/";
+            $scandir = scandir($nom_dossier);
+            foreach($scandir as $test){
+                $dir = $nom_dossier.$test;
+                if($test != "." && $test != ".."){
+                    echo "<a href='$dir'>$test<br></a>";    
+                }
+            }
+echo    '</div>';
 
 page_bot();
 
