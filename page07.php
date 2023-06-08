@@ -125,12 +125,14 @@ if (session_status() == PHP_SESSION_NONE) {
 
         /****************************** La meme page apres (if isset(button))***************************************** */          
         } else {
+
+
             findUsers($_POST['input_user']);
             echo '
-            </tbody>
-            </table>
-            </div>
-        </div>';
+                </tbody>
+                </table>
+                </div>
+            </div>';
 
         if (!isset($_POST["add_user"])) {
             echo '
@@ -180,6 +182,17 @@ if (session_status() == PHP_SESSION_NONE) {
         }
     }
 }
+echo    '<br><br><div class="row" style="text-align:center">
+            <h3>Fichier de commandes client</h3>';
+            $nom_dossier = "data/commandes/";
+            $scandir = scandir($nom_dossier);
+            foreach($scandir as $test){
+                $dir = $nom_dossier.$test;
+                if($test != "." && $test != ".."){
+                    echo "<a href='$dir'>$test<br></a>";    
+                }
+            }
+echo    '</div><br>';
 
 page_bot();
 
