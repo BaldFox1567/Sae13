@@ -6,13 +6,6 @@ $resto = $_POST['resto'];
 $pizza = $_POST['pizza'];
 $pasta = $_POST['pasta'];
 
-/*
-echo $nom;
-echo $prenom;
-echo $resto;
-echo $pizza;
-echo $pasta;*/
-
 $nom_dossier = "data/commandes/";
 $nom_fichier = $nom_dossier.$nom."_".$prenom.".txt";
 
@@ -26,18 +19,8 @@ fwrite($fichier, 'Pizza selectionne : '.$pizza."\n");
 fwrite($fichier, 'Pasta selectionne : '.$pasta."\n");
 fclose($fichier);
 
-/*$nom_dossier = "data/commandes/";
-$scandir = scandir($nom_dossier);
-foreach($scandir as $test){
-    $dir = $nom_dossier.$test;
-    if($test != ("." or "..")){
-        echo "<a href='$dir'>$test<br></a>";    
-    }
-    
-}*/
 
 
-sleep(2);
-header("Location: page04.php");
+header("Location: page04.php?confirmation=ok");
 
 ?>

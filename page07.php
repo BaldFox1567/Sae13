@@ -182,8 +182,8 @@ if (!isset($_SESSION)) {
         }
     }
 }
-echo    '<div class="row" style="text-aligns:center">
-            <p>Fichier de commandes client</p>';
+echo    '<br><br><div class="row" style="text-align:center">
+            <h3>Fichier de commandes client</h3>';
             $nom_dossier = "data/commandes/";
             $scandir = scandir($nom_dossier);
             foreach($scandir as $test){
@@ -192,7 +192,7 @@ echo    '<div class="row" style="text-aligns:center">
                     echo "<a href='$dir'>$test<br></a>";    
                 }
             }
-echo    '</div>';
+echo    '</div><br>';
 
 page_bot();
 

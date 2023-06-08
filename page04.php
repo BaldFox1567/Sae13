@@ -40,6 +40,9 @@ function pasta($local, $pasta){
 <br>
 
 <?php
+if(isset($_GET['confirmation'])){
+    echo '<p class="text-danger"><u>Votre demande à bien été prise en compte</u></p>';
+}
 echo '
 <form method="POST" action="traitement.php">
                 <div class="row">
@@ -87,6 +90,7 @@ echo '
                 <input type="submit" class="form-control" value="Passer commande">
             </form>
             ';
+            
 ?>
 </div>
 <?php page_bot();?>
