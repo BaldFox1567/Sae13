@@ -142,9 +142,7 @@ function navbar($pageactive)
 
                   
         }else {connexion($_POST['user'], $_POST['pass']);}
-      }
-
-      else {
+      } else {
         echo '<p style="margin-right:15px;color:white">Connecté en tant que ' . $_SESSION['user'].'</p>';
         echo '<button class="btn btn-primary"><a style="color:white" href="fonction.php?deco=true">Déconnexion</a></button>';      
   }
@@ -355,3 +353,43 @@ function findUsers($text)
   }
   getUsers($founded_users);
 }
+
+
+function creerAnnuaire($nom, $prenom, $telephone) 
+{
+    // Vérifier si le fichier JSON existe
+    $fichier = 'data/annuaire.json';
+    $utilisateurs = [];
+
+    if (file_exists($fichier)) {
+        // Lire le contenu du fichier JSON existant
+        $contenu = file_get_contents($fichier);
+
+        // Décoder le contenu JSON en un tableau associatif
+        $utilisateurs = json_decode($contenu, true);
+    }
+
+    // Créer un nouvel utilisateur
+    $nouvelUtilisateur = array(
+        "nom" => $nom,
+        "prenom" => $prenom,
+        "telephone" => $telephone
+    );
+
+    // Ajouter le nouvel utilisateur au tableau
+    $utilisateurs[] = $nouvelUtilisateur;
+
+    // Convertir le tableau en JSON
+    $nouveauContenu = json_encode($utilisateurs, JSON_PRETTY_PRINT);
+
+    // Écrire le contenu JSON dans le fichier avec gestion des erreurs
+    if (file_put_contents($fichier, $nouveauContenu) !== false) {
+      return true; // Succès de l'écriture du fichier
+  } else {
+      return false; // Échec de l'écriture du fichier
+  }
+    
+}
+
+
+
