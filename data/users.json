@@ -1,37 +1,37 @@
 {
-    "bagel": {
-        "user": "bagel",
-        "mdp": "$2y$10$Nf2pZndPyVGVg9ZgM3m8mOEDqStoyijjTZdFk7rBme1egCF8pKLZq",
-        "role": "superadmin"
-    },
-    "anonymous": {
+    "1": {
         "user": "anonymous",
         "mdp": "$2y$10$2iN\/YTDup6GDioGs4PJV3uhffURT8ZQSGpvTP4xWFVMVkBJntTdOq",
         "role": "visitor"
     },
-    "admin": {
+    "2": {
         "user": "admin",
         "mdp": "$2y$10$pxQCauEXDSIRncE17E6W.eQidzMH8kxHVBiAR9jF7vKwcomC4sXhu",
         "role": "admin"
     },
-    "admin_2": {
-        "user": "admin_2",
-        "mdp": "$2y$10$bMt2\/\/o7UqUkg6tfy52rV.guSCO3zDNdYzuMjTeX2PpheApK1syju",
-        "role": "admin"
+    "3": {
+        "user": "garat",
+        "mdp": "$2y$10$9fv5NAoZKktDnUp98E1S6.Gmf45nBCHM6E9VOn4m3X4YLPo.qUKva",
+        "role": "directeur"
     },
-    "Popol": {
-        "user": "Popol",
-        "mdp": "$2y$10$uHkFiwwhmi3RQZQO3abkJeMGW.F7UsjQzThp2SLZ8DwHpo13\/RpDW",
+    "4": {
+        "user": "user",
+        "mdp": "$2y$10$Nyy9aUm7icoCu4GQ0FLDZef58ILW11kXV5W0K522EaP81V\/1fSsmi",
         "role": "user"
     },
-    "Jean-Paul": {
-        "user": "Jean-Paul",
-        "mdp": "$2y$10$zeycWYo5FUC.CLriKeaOV.t5pNkxd.7hFwkcUbJxOdzrnA40SI\/d.",
-        "role": "visitor"
+    "5": {
+        "user": "Dream",
+        "mdp": "$2y$10$80Cfh4wdoUa56QTTuj1k.OFLhqXxJA0LrxU0LH\/MBsjll4lMBtA7W",
+        "role": "superadmin"
     },
-    "Pol": {
-        "user": "Pol",
-        "mdp": "$2y$10$TA8Ip4.8OKn9jPyc7Z.gX.GJ6qspBooaC4k6TAKq3Nlh/XUJ9vWTG",
+    "6": {
+        "user": "chef",
+        "mdp": "$2y$10$ydFqB3HPQT4BuJRarE0RHu3RJ\/FwPE9MhX2sEDhvq5d9ywW7.G6nG",
+        "role": "chef"
+    },
+    "7": {
+        "user": "et",
+        "mdp": "$2y$10$P6G1Op5QVYWX3ZAzEr1Vs.Zeh\/VNB6fez\/lcM3tHIp9FRwtTKIAHe",
         "role": "user"
     }
 }

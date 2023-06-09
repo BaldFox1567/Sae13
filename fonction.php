@@ -94,17 +94,31 @@ function navbar($pageactive)
           </li>
           <li class="nav-item">
             <a class="nav-link"'; 
-      if ($pageactive=="page07.php") {echo ' style="color:#3498db;"';}
+      
+          if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "superadmin" || $_SESSION['role'] == "directeur") { // Regarde si l'utilisateur a les droits 
+              
+            if ($pageactive=="page07.php") {echo ' style="color:#3498db;"';}
       echo 'href="page07.php">Espace employés</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"'; 
-      if ($pageactive=="page08.php") {echo ' style="color:#3498db;"';}
+          }
+      
+      if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "superadmin" || $_SESSION['role'] == "directeur") { 
+      if ($pageactive=="page08.php") { echo ' style="color:#3498db;"';}
       echo 'href="page08.php">Annuaire</a>
           </li>
-        </ul>
+          <li class="nav-item">
+            <a class="nav-link"';
+      }
+      if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "superadmin" || $_SESSION['role'] == "directeur"|| $_SESSION['role'] == "chef") { 
+        if ($pageactive=="page10.php") { echo ' style="color:#3498db;"';}
+        echo 'href="page10.php">Cartes</a>
+            </li>';
+        }
+       echo'</ul>
       </div>
-
+      
       <div class="text-black">';
 
 
@@ -142,11 +156,11 @@ function navbar($pageactive)
                   
         }else {connexion($_POST['user'], $_POST['pass']);}
       } else {
-        echo '<p style="margin-right:15px;color:white">Connecté en tant que ' . $_SESSION['user'].'</p>';
-        echo '<button class="btn btn-primary"><a style="color:white" href="fonction.php?deco=true">Déconnexion</a></button>';      
+        echo '<p style="margin-right:10px;color:white">Connecté en tant que ' . $_SESSION['user'].'       ';
+        echo '<button class="btn btn-primary"><a style="color:white" href="fonction.php?deco=true">Déconnexion</a></button></p>';      
   }
   
-  echo'</div></div></nav>';
+  echo'</div></div></div></nav>';
 }
 
 /////// Gestion des Utilisateurs ///////
@@ -166,193 +180,129 @@ header('Refresh:0');
 
 function deconnexion()
 {
-  $_SESSION = [];
   session_start();
+  $_SESSION = [];
   session_unset();
   session_destroy();
   header("Location: index.php");
 }
 
-function newUsers() 
+
+function addUser($usr, $mdp, $role = "user")
 {
-  //fichier json contenant 4 premiers users
-  $defaultusers = array(
-      "admin" => array(
-          "user" => "admin",
-          "mdp" => "$2y$10\$RsRMaKUx2PDq\/JWDE2.nbOfO7hbC07GgMO476OQiC5O8HGM.\/LECu",
-          "role"=> "admin"),
-
-      "anonymous"=> array(
-          "user"=> "anonymous",
-          "mdp"=> "$2y$10$32KjXmzXbkt1kz\/e3qTZlurv8QwxJfobJWkUHeELOi072TVzWpBHW",
-          "role"=> "visitor"),
-
-      "bagel" => array(
-          "user"=> "bagel",
-          "mdp"=> "$2y$10\$Nf2pZndPyVGVg9ZgM3m8mOEDqStoyijjTZdFk7rBme1egCF8pKLZq",
-          "role"=> "superadmin"),
-
-      "zaza" => array(
-          "user" => "zaza",
-          "mdp" => "$2y$10\$FCCCfG2sljwZyc98NY9dYOkUgIkYrwREMPCyy4AxhQYeDos.P1NlG",
-          "role" => "user"),
-
-      "usr"=> array(
-          "user"=> "usr",
-          "mdp"=> "$2y$10\$KCFlujz3HcxgODKJBYi6GOb\/V4gXDDUdu1VKEnM.j\/42LrqKalNfW",
-          "role"=> "visitor"),
-
-      "user" => array(
-          "user" => "user",
-          "mdp" => "$2y$10\$nf2.NZ29p\/JW3Nyc\/Vn88uri1h14a0cnBNum7BQIqR7wR13DLUaCW",
-          "role" => "admin"),
-      );
-  echo '
-      <div class="d-flex justify-content-center container col-10 my-4 border border-3 p-5">
-  
-      <pre>';
-  $res = json_encode($defaultusers, JSON_PRETTY_PRINT);
-  file_put_contents("./data/users.json", $res);
-  echo $res;
-  echo '
-      </pre>
-      </div>';
-}
-function addUser($usr, $mdp, $role="user")
-{
-  // encode sans avoir decoder => ecrase le fichier déja present
-  $users = json_decode(file_get_contents("data/users.json"));
-  // Création liste de données utilisateur
-  foreach ($users as $user) {
-     if ($user["user"] == $usr) {
-         echo '
-         </div>Usernam déja prit<br/>
-         <a type="button" class="btn text-center border border-black mt-3" href="page06.php">Recharger la page</a></div>';
-         page_bot();
-         die();
-     }
- }
-  $newUser = array(
-  'user' => $usr,
-  'mdp'=> password_hash($mdp, PASSWORD_DEFAULT),
-  'role' => $role,
- );
-  $users[$newUser["user"]] = $newUser;
-  $res=json_encode($users, JSON_PRETTY_PRINT);
-  file_put_contents("./data/users.json", $res); //résultat dans users.json
-  header("Refresh:0");
-  die();
+    $users = json_decode(file_get_contents("data/users.json"), true);
+    
+    foreach ($users as $user) {
+        if ($user["user"] === $usr) {
+            echo '
+            </div>Username déjà pris<br/>
+            <a type="button" class="btn text-center border border-black mt-3" href="page06.php">Recharger la page</a></div>';
+            page_bot();
+            die();
+        }
+    }
+    
+    $newUser = [
+        'user' => $usr,
+        'mdp' => password_hash($mdp, PASSWORD_DEFAULT),
+        'role' => $role,
+    ];
+    
+    $users[] = $newUser;
+    
+    $res = json_encode($users, JSON_PRETTY_PRINT);
+    
+    file_put_contents("data/users.json", $res);
+    header("Refresh:0");
+    die();
 }
 
-function deleteUser($usr)
+function deleteUser($usr) 
 {
+  $users = json_decode(file_get_contents('data/users.json'), true);
+  $currentUserRole = $_SESSION['role'];
 
-  $users = json_decode(file_get_contents('data/users.json'));
   foreach ($users as $key => $user) {
-      if ($user["user"] == $usr["user"] && $user['role'] != "admin") {
-          unset($users[$key]);
-      } 
+      if ($user["user"] == $usr["user"] && $currentUserRole == "superadmin" || ($currentUserRole != "admin" && $currentUserRole != "superadmin")) {
+              unset($users[$key]);
+      }
   }
+
   file_put_contents("data/users.json", json_encode($users, JSON_PRETTY_PRINT));
   header("Refresh:0");
 }
 
-function getUsers($database)
+
+function getUsers($database = null)
 {
-  if (!isset($database)) {
-      $path ="data/users.json";
-      $users = json_decode(file_get_contents($path, true), true);
-      echo '
-      <div class="container mb-1 col-10">
-          <span class="align-middle">Nombre d\'utilisateurs : '.count($users).'</span>
-      </div>
-      <div class="container pb-4 pt-3 px-2  border-black border-2 rounded-2 col-10">
-          <h3 class="mt-4 mx-1">Les Utilisateurs correspondants : </h3>
-          recherche de tous les utilisateurs : '.count($users).' résultats trouvés
-              <div class="d-flex justify-content-center pb-4 pt-3 px-3 ms-5">
-                  <table class="table text-50 table-hover">
-                      <thead>
-                          <tr>
-                              <th scope="col">Utilisateur</th>
-                              <th scope="col">Mot de passe</th>
-                              <th scope="col">Rôle</th>
-                          </tr>
-                      </thead>
-                      <tbody>';
-      foreach ($users as $user) { //hidden inputs so that I can retrieve who's button was clicked
-          echo '
-              <tr>
-              <th scope="row">'.$user["user"].'</th>
-              <td>'.
-              $user['mdp'].'</td>
-              <td>'.
-              $user['role'].'</td>
-              <td style="border: none"><form method="post">
-                  <input type="hidden" name="username" value="'.$user['user'].'">
-                  <input type="hidden" name="usermdp" value="'.$user['mdp'].'">
-                  <input type="submit" name="delete_usr" class="btn btn-sm btn-danger text-decoration-none" value="X">
-              </form></td>
-              </tr>
-          ';
-      }
-  }else {
-      echo '
-      <div class="container mb-1 col-10">
-          <span class="align-middle">Nombre d\'utilisateurs : '.count($database).'</span>
-      </div>
-      <div class="container pb-4 pt-3 px-2 text-white border-black border-2 rounded-2 bg-black bg-gradient col-10">
-          <h3 class="mt-4 mx-1">Les Utilisateurs correspondants : </h3>
-          recherche de tous les utilisateurs : '.count($database).' résultats trouvés
-              <div class="d-flex justify-content-center pb-4 pt-3 px-3 ms-5">
-                  <table class="table text-white-50 table-hover">
-                      <thead>
-                          <tr>
-                              <th scope="col">Utilisateur</th>
-                              <th scope="col">Mot de passe</th>
-                              <th scope="col">Rôle</th>
-                          </tr>
-                      </thead>
-                      <tbody>';
-      foreach ($database as $user) {
-          echo '
-          <tr>
-          <th scope="row">'.$user['user'].'</th>
-          <td>'.
-          $user['mdp'].'</td>
-          <td>'.
-          $user['role'].'</td>
-          <td style="border: none"><form method="post">
-              <input type="hidden" name="username" value="'.$user['user'].'">
-              <input type="hidden" name="usermdp" value="'.$user['mdp'].'">
-              <input type="submit" name="delete_usr" class="btn btn-sm btn-danger text-decoration-none" value="X">
-          </form></td>
-          </tr>
-      ';
-      }
-  }
+    if ($database === null) {
+        $path = "data/users.json";
+        $users = json_decode(file_get_contents($path), true);
+    } else {
+        $users = $database;
+    }
+    
+    echo '
+    <div class="container mb-1 col-10">
+    <span class="align-middle">Nombre d\'utilisateurs : ' . count($users) . '</span>
+    </div>
+    <div class="container pb-4 pt-3 px-2 border-black border-2 rounded-2 col-10">
+    <h3 class="mt-4 mx-1">Les Utilisateurs correspondants :</h3>
+    <p>Recherche de tous les utilisateurs : ' . count($users) . ' résultats trouvés</p>
+    <div class="d-flex justify-content-center pb-4 pt-3 px-3 ms-5">
+    <table class="table text-50 table-hover">
+    <thead>
+    <tr>
+    <th scope="col">Utilisateur</th>
+    <th scope="col">Mot de passe</th>
+    <th scope="col">Rôle</th>
+    </tr></thead><tbody>';
+
+    foreach ($users as $user) {
+        echo '
+        <tr>
+            <th scope="row">' . $user["user"] . '</th>
+            <td>' . $user['mdp'] . '</td>
+            <td>' . $user['role'] . '</td>
+            <td style="border: none">
+                <form method="post">
+                    <input type="hidden" name="username" value="' . $user['user'] . '">
+                    <input type="hidden" name="usermdp" value="' . $user['mdp'] . '">
+                    <input type="submit" name="delete_usr" class="btn btn-sm btn-danger text-decoration-none" value="X">
+                </form>
+            </td>
+        </tr>';
+    }
+    
+    echo '
+                </tbody>
+            </table>
+        </div>
+    </div>';
 }
 
 function findUsers($text)
 {
-  $founded_users=[];
-  $text = htmlspecialchars(strtolower($text));
-  $users = json_decode(file_get_contents("data/users.json", true), true);
-  $text = explode(" ", $text);
-  foreach ($text as $key) {
-      foreach ($users as $user) {
-          if (str_contains(strtolower($user["user"]), $key)) {
-              array_push($founded_users, $user);
-          }
+  $foundedUsers = [];
+  $users = json_decode(file_get_contents("data/users.json"), true);
+  $searchText = strtolower($text);
+
+  foreach ($users as $user) {
+      if (stripos(strtolower($user["user"]), $searchText) !== false) {
+          $foundedUsers[] = $user;
       }
   }
-  foreach ($founded_users as $key => $founded) {
-      if (array_search($founded, $founded_users) !== $key) {
-          unset($founded_users[$key]);
-        }
-  }
-  getUsers($founded_users);
+
+  $foundedUsers = array_values(array_unique($foundedUsers, SORT_REGULAR));
+
+   getUsers($foundedUsers);
 }
 
+
+
+
+
+// Annuaire
 
 function creerAnnuaire($nom, $prenom, $telephone) 
 {
@@ -390,5 +340,94 @@ function creerAnnuaire($nom, $prenom, $telephone)
     
 }
 
+function supprimerMembre($id) 
+{
+  // Charger le contenu du fichier annuaire.json
+  $fichier = './data/annuaire.json';
+  $contenu = file_get_contents($fichier);
+
+  // Décoder le contenu JSON en tableau associatif
+  $utilisateurs = json_decode($contenu, true);
+
+  // Rechercher l'utilisateur à supprimer dans le tableau
+  foreach ($utilisateurs as $index => $utilisateur) {
+      if ($utilisateur['id'] == $id) {
+          // Supprimer l'utilisateur du tableau
+          unset($utilisateurs[$index]);
+
+          // Réorganiser les clés du tableau
+          $utilisateurs = array_values($utilisateurs);
+
+          // Enregistrer le tableau modifié dans le fichier
+          file_put_contents($fichier, json_encode($utilisateurs));
+
+          return true; // Indiquer que la suppression a réussi
+      }
+  }
+
+  return false; // Indiquer que l'utilisateur n'a pas été trouvé
+}
 
 
+//Carte
+
+
+// Fonction pour afficher les objets
+function afficherObjets($data)
+{
+    foreach ($data['categories'] as $category) {
+        echo "Category: " . $category['name'] . "<br>";
+
+        foreach ($category['items'] as $item) {
+            echo "Name: " . $item['name'] . "<br>";
+            echo "Description: " . $item['description'] . "<br>";
+            echo "Price: " . $item['price'] . "<br>";
+            echo "Vegetarian: " . ($item['vegetarian'] ? 'Yes' : 'No') . "<br>";
+            echo "Allergens: " . implode(', ', $item['allergens']) . "<br>";
+            echo 'Image: <img src="'.$item["image"].'"width="40" height="40"><br>';
+            echo "<br>";
+        }
+    }
+}
+
+// Fonction pour supprimer un objet en fonction de son nom
+function supprimerObjet(&$data, $nom)
+{
+    foreach ($data['categories'] as $categoryKey => $category) {
+        foreach ($category['items'] as $itemKey => $item) {
+            if ($item['name'] === $nom) {
+                unset($data['categories'][$categoryKey]['items'][$itemKey]);
+                // Réorganiser les clés des éléments supprimés
+                $data['categories'][$categoryKey]['items'] = array_values($data['categories'][$categoryKey]['items']);
+                break 2;
+            }
+        }
+    }
+}
+
+// Fonction pour ajouter un nouvel objet
+function ajouterObjet(&$data, $categorie, $nom, $description, $prix, $vegetarien, $allergenes, $image)
+{
+    foreach ($data['categories'] as &$category) {
+        if ($category['name'] === $categorie) {
+            $newItem = array(
+                "name" => $nom,
+                "description" => $description,
+                "price" => $prix,
+                "vegetarian" => $vegetarien,
+                "allergens" => $allergenes,
+                "image" => $image
+            );
+
+            $category['items'][] = $newItem;
+            break;
+        }
+    }
+}
+
+// Fonction pour sauvegarder les données dans un fichier JSON
+function sauvegarderData($data, $filename)
+{
+    $json = json_encode($data, JSON_PRETTY_PRINT);
+    file_put_contents($filename, $json);
+}
