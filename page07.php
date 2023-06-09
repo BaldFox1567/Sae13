@@ -150,9 +150,9 @@ echo    '<br><br><div class="row" style="text-align:center">
             <h3>Fichier de commandes client</h3>';
             $nom_dossier = "data/commandes/";
             $scandir = scandir($nom_dossier);
-            foreach($scandir as $test){
+            foreach ($scandir as $test) {
                 $dir = $nom_dossier.$test;
-                if($test != "." && $test != ".."){
+                if ($test != "." && $test != "..") {
                     echo "<a href='$dir'>$test<br></a>";
                 }
             }
