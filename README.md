@@ -15,15 +15,15 @@ Livraisons depuis le site. El Pasta Pizza ( SARL Pizzerita ).
 ## Contributors
 
 ### Development team
-Yann : partie graphique, logo, charte graphique.
-Adrien : configuration du serveur.
-Theo : structure du site
+Yann (Moxwinzz) : partie graphique, logo, charte graphique.
+Adrien (DreamKiss04) : configuration du serveur.
+Theo (Baldfox) : structure du site
     Page accueil
     Page menu
     Page livraison
     Page mystere
 
-Kerrian : Programmation des sites, selon les pages que théo donne.
+Kerrian (Bob_LeCLou) : Programmation des sites, selon les pages que théo donne.
 
 ### Reviewers
 
