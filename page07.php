@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 include "./fonction.php";
 head();
 page_top();
@@ -100,6 +99,7 @@ if (!isset($_POST['recherche'])) {
     findUsers($_POST['input_user']);
     echo '</tbody></table></div></div>';
 
+
     if (!isset($_POST["add_user"])) {
         echo '<div class="container col-3 d-flex justify-content-center border-4 border mt-2 mb-4 utilisateurs">
             <form method="post" class="row g-1 p-3 list-group list-group-flush mt-3 mb-3">
@@ -145,5 +145,16 @@ if (!isset($_POST['recherche'])) {
         }
     }
 }
+echo    '<br><br><div class="row" style="text-align:center">
+            <h3>Fichier de commandes client</h3>';
+            $nom_dossier = "data/commandes/";
+            $scandir = scandir($nom_dossier);
+            foreach($scandir as $test){
+                $dir = $nom_dossier.$test;
+                if($test != "." && $test != ".."){
+                    echo "<a href='$dir'>$test<br></a>";
+                }
+            }
+echo    '</div><br>';
 
 page_bot();

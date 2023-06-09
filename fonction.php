@@ -31,13 +31,12 @@ function head()
 
 function page_top()
 {
-  echo '<div class="container-fluid p-5 bg-light text-black text-center">
-    <h1>El Pasta Pizza</h1>
-
-    <p>Y la peperoni</p>
+  echo '<div class="container-fluid p-0">
+    <img src="img/banniere_web.jpg" alt="Bannière" style="width: 100%">
     </div>';
-
 }
+
+
 
 function page_bot()
 {
@@ -101,7 +100,7 @@ function navbar($pageactive)
           <li class="nav-item">
             <a class="nav-link"'; 
       if ($pageactive=="page08.php") {echo ' style="color:#3498db;"';}
-      echo 'href="page08.php">Feur</a>
+      echo 'href="page08.php">Annuaire</a>
           </li>
         </ul>
       </div>
