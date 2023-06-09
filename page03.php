@@ -36,7 +36,7 @@ navbar($nom_page);
 
             // Affecter le nom de l'image en fonction du plat
             $itemName = str_replace(' ', '-', strtolower($item['name']));
-            $image = 'img/' . $itemName . '.jpg';
+            $image = $item["image"];
 
             // Afficher l'image et les détails du plat
             echo '<img src="' . $image . '" alt="' . $item['name'] . '" class="card-img-top custom-card-img">';

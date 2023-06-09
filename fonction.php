@@ -94,17 +94,31 @@ function navbar($pageactive)
           </li>
           <li class="nav-item">
             <a class="nav-link"'; 
-      if ($pageactive=="page07.php") {echo ' style="color:#3498db;"';}
+      
+          if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "superadmin" || $_SESSION['role'] == "directeur") { // Regarde si l'utilisateur a les droits 
+              
+            if ($pageactive=="page07.php") {echo ' style="color:#3498db;"';}
       echo 'href="page07.php">Espace employés</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"'; 
-      if ($pageactive=="page08.php") {echo ' style="color:#3498db;"';}
+          }
+      
+      if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "superadmin" || $_SESSION['role'] == "directeur") { 
+      if ($pageactive=="page08.php") { echo ' style="color:#3498db;"';}
       echo 'href="page08.php">Annuaire</a>
           </li>
-        </ul>
+          <li class="nav-item">
+            <a class="nav-link"';
+      }
+      if ($_SESSION['role'] == "admin" || $_SESSION['role'] == "superadmin" || $_SESSION['role'] == "directeur"|| $_SESSION['role'] == "chef") { 
+        if ($pageactive=="page10.php") { echo ' style="color:#3498db;"';}
+        echo 'href="page10.php">Cartes</a>
+            </li>';
+        }
+       echo'</ul>
       </div>
-
+      
       <div class="text-black">';
 
 
@@ -142,8 +156,8 @@ function navbar($pageactive)
                   
         }else {connexion($_POST['user'], $_POST['pass']);}
       } else {
-        echo '<p style="margin-right:15px;color:white">Connecté en tant que ' . $_SESSION['user'].'</p>';
-        echo '<button class="btn btn-primary"><a style="color:white" href="fonction.php?deco=true">Déconnexion</a></button>';      
+        echo '<p style="margin-right:10px;color:white">Connecté en tant que ' . $_SESSION['user'].'       ';
+        echo '<button class="btn btn-primary"><a style="color:white" href="fonction.php?deco=true">Déconnexion</a></button></p>';      
   }
   
   echo'</div></div></div></nav>';
@@ -355,5 +369,65 @@ function supprimerMembre($id)
 }
 
 
+//Carte
 
 
+// Fonction pour afficher les objets
+function afficherObjets($data)
+{
+    foreach ($data['categories'] as $category) {
+        echo "Category: " . $category['name'] . "<br>";
+
+        foreach ($category['items'] as $item) {
+            echo "Name: " . $item['name'] . "<br>";
+            echo "Description: " . $item['description'] . "<br>";
+            echo "Price: " . $item['price'] . "<br>";
+            echo "Vegetarian: " . ($item['vegetarian'] ? 'Yes' : 'No') . "<br>";
+            echo "Allergens: " . implode(', ', $item['allergens']) . "<br>";
+            echo 'Image: <img src="'.$item["image"].'"width="40" height="40"><br>';
+            echo "<br>";
+        }
+    }
+}
+
+// Fonction pour supprimer un objet en fonction de son nom
+function supprimerObjet(&$data, $nom)
+{
+    foreach ($data['categories'] as $categoryKey => $category) {
+        foreach ($category['items'] as $itemKey => $item) {
+            if ($item['name'] === $nom) {
+                unset($data['categories'][$categoryKey]['items'][$itemKey]);
+                // Réorganiser les clés des éléments supprimés
+                $data['categories'][$categoryKey]['items'] = array_values($data['categories'][$categoryKey]['items']);
+                break 2;
+            }
+        }
+    }
+}
+
+// Fonction pour ajouter un nouvel objet
+function ajouterObjet(&$data, $categorie, $nom, $description, $prix, $vegetarien, $allergenes, $image)
+{
+    foreach ($data['categories'] as &$category) {
+        if ($category['name'] === $categorie) {
+            $newItem = array(
+                "name" => $nom,
+                "description" => $description,
+                "price" => $prix,
+                "vegetarian" => $vegetarien,
+                "allergens" => $allergenes,
+                "image" => $image
+            );
+
+            $category['items'][] = $newItem;
+            break;
+        }
+    }
+}
+
+// Fonction pour sauvegarder les données dans un fichier JSON
+function sauvegarderData($data, $filename)
+{
+    $json = json_encode($data, JSON_PRETTY_PRINT);
+    file_put_contents($filename, $json);
+}

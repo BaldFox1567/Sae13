@@ -12,7 +12,7 @@ if (session_status() == PHP_SESSION_NONE) {
     die();
 }
 
-if (!(isset($_SESSION['role']) && ($_SESSION['role'] == "admin" || $_SESSION['role'] == "superadmin"))) {
+if (!isset($_SESSION['role']) || ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "superadmin" && $_SESSION['role'] !== "directeur")) {
     sleep(2);
     header("Location: index.php");
     die();
@@ -141,8 +141,9 @@ if (!isset($_POST['recherche'])) {
         } elseif ($_POST['role'] == "Choix du rôle") {
             addUser($_POST['user'], $_POST['mdp']);
         } else {
-            addUser($_POST['user'], $_POST['mdp'], $_POST['role']);
+            addUser($_POST['user'], $_POST['mdp'], $_POST['role']); 
         }
+       
     }
 }
 echo    '<br><br><div class="row" style="text-align:center">
