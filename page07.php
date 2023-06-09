@@ -19,7 +19,7 @@ if (!isset($_SESSION['role']) || ($_SESSION['role'] !== "admin" && $_SESSION['ro
 }
 
 $users = json_decode(file_get_contents("data/users.json"), true);
-echo '<body>
+echo '
     <div class="container mb-1 col-10">
         <h1 class="my-4 text-center">Administration</h1>';
 
@@ -95,6 +95,10 @@ if (!isset($_POST['recherche'])) {
             addUser($_POST['user'], $_POST['mdp'], $_POST['role']);
         }
     }
+
+
+
+
 } else { // Après la recherche
     findUsers($_POST['input_user']);
     echo '</tbody></table></div></div>';
